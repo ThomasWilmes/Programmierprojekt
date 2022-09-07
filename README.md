@@ -1,2 +1,2 @@
 # Programmierprojekt
-repo modul programmierporjjekt
+Dies ist die Beschreibung unseres Codes.
