@@ -23,7 +23,7 @@ def get_recommendation():
         return 'No input data was given', 400
     movieList = requestData.split(',')
     if (movieList is None):
-        return 'The input data is not in the correct format', 400
+        return 'The input data is not in the correct formatt', 400
     return getListOfRecommendations(movieList)
 
 
