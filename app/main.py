@@ -10,9 +10,6 @@ from recommendation import *
 app = Flask(__name__)
 api = Api(app)
 
-@app.route("/")
-def hello_world():
-    return "<p>Go to /movies for a List of Movies</p>"
 
 @app.route("/test")
 def hello_world():
