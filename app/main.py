@@ -2,29 +2,31 @@
 Test implementation of a Restful API
 """
 import os
-from flask import Flask
-from flask_restful import Api, Resource
+
+from flask import Flask, request
+from flask_restful import Api
+from recommendation import *
 
 app = Flask(__name__)
+api = Api(app)
 
-api =   Api(app)
 
-class HelloWorld(Resource):
-    """
-    Test API Endpoint
-    """
-    def get(self):
-        """
-        Getter for hello world
-        """
-        data={"data": "Hi there, Programming Project!"}
+@app.route('/movies')
+def get_movies():
+    return getListOfMovies()
 
-        return data
 
-api.add_resource(HelloWorld,'/hello')
+@app.route('/recommendation')
+def get_recommendation():
+    requestData = request.form.get('movies')
+    if (requestData is None):
+        return 'No input data was given', 400
+    movieList = requestData.split(',')
+    if (movieList is None):
+        return 'The input data is not in the correct format', 400
+    return getListOfRecommendations(movieList)
+
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
-
-
-    app.run(host="0.0.0.0", port=cfg_port)#, debug=True)
+    app.run(host="0.0.0.0", port=cfg_port, debug=True)
