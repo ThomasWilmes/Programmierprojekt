@@ -11,10 +11,6 @@ app = Flask(__name__)
 api = Api(app)
 
 
-@app.route("/test")
-def hello_world():
-    return "<p>Testpage!</p>"
-
 @app.route('/movies')
 def get_movies():
     return getListOfMovies()
