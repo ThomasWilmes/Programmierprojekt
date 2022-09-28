@@ -2,8 +2,12 @@ listOfMovies = []
 listOfRecommendations = []
 
 
-def getListOfMovies():         
-        listOfMovies = ["Film1", "Film2", "Film3", "Film4", "Film5", "Film6"]
+def getListOfMovies():
+    global listOfMovies
+    with open("data/movie_titles.csv", newline='', encoding='latin-1') as f:
+        reader = csv.reader(f) 
+        if not listOfMovies:          
+            listOfMovies = list(reader)
         return listOfMovies
 
 
