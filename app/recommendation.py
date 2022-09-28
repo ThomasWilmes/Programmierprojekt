@@ -3,7 +3,7 @@ listOfRecommendations = []
 
 
 def getListOfMovies():         
-        listOfMovies = ["Film1", "Film2", "Film3", "Film4", "Film5"]
+        listOfMovies = ["Film1", "Film2", "Film3", "Film4", "Film5", "Film6"]
         return listOfMovies
 
 
