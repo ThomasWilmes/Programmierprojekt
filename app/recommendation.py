@@ -1,3 +1,5 @@
+import csv
+
 listOfMovies = []
 listOfRecommendations = []
 
