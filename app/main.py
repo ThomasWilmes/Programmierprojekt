@@ -14,6 +14,10 @@ api = Api(app)
 def hello_world():
     return "<p>Go to /movies for a List of Movies</p>"
 
+@app.route("/test")
+def hello_world():
+    return "<p>Testpage</p>"
+
 @app.route('/movies')
 def get_movies():
     return getListOfMovies()
