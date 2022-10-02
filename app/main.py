@@ -13,7 +13,7 @@ api = Api(app)
 
 @app.route('/movies')
 def get_movies():
-    return parseCSV("data/movie_titles.csv")
+    return getListOfMovies()
 
 
 @app.route('/recommendation')
