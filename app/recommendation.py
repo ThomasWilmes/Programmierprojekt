@@ -1,4 +1,6 @@
 import csv
+import pandas as pd
+
 
 listOfMovies = []
 listOfRecommendations = []
