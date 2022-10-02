@@ -3,6 +3,14 @@ import csv
 listOfMovies = []
 listOfRecommendations = []
 
+def parseCSV(filePath):
+      # CVS Column Names
+      col_names = ['id','film']
+      # Use Pandas to parse the CSV file
+      csvData = pd.read_csv(filePath,names=col_names, header=None)
+      # Loop through the Rows
+      for i,row in csvData.iterrows():
+            return (i,row['id'],row['film'],)
 
 def getListOfMovies():
     global listOfMovies
