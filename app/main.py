@@ -2,7 +2,6 @@
 Test implementation of a Restful API
 """
 import os
-import pandas as pd
 
 from flask import Flask, request
 from flask_restful import Api
@@ -14,7 +13,6 @@ CORS(app)
 api = Api(app)
 
 
-df = pd.read_csv("data/movie_titles.csv")
 
 @app.route('/movies')
 def get_list():
