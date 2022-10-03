@@ -12,9 +12,12 @@ app = Flask(__name__)
 CORS(app)
 api = Api(app)
 
+
+df = pd.read_csv("data/movie_titles.csv")
+
 @app.route('/movies')
 def get_list():
-    return parse_csv()
+    return parse_csv(df)
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
