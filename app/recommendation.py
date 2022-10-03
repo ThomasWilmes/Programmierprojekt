@@ -23,7 +23,8 @@ class Movie:
 
 df = pd.read_csv("data/movie_titles.csv")
 
-def parse_csv(df):
+def parse_csv():
+    df = pd.read_csv("data/movie_titles.csv")
     res = df.to_json(orient="records")
     parsed = json.loads(res)
     return parsed
