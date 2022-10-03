@@ -2,6 +2,7 @@
 Test implementation of a Restful API
 """
 import os
+import pandas as pd
 
 from flask import Flask, request
 from flask_restful import Api
