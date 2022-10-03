@@ -14,7 +14,7 @@ api = Api(app)
 
 @app.route('/movies')
 def get_list():
-    return getMovieList()
+    return parse_csv()
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
