@@ -13,7 +13,7 @@ CORS(app)
 api = Api(app)
 
 @app.route('/movies')
-def get_movielist():
+def get_list():
     return getMovieList()
 
 if __name__=='__main__':
