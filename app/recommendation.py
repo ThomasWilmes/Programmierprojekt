@@ -3,8 +3,7 @@
 
 from dataclasses import dataclass
 
-listOfMovies = []
-listOfRecommendations = []
+movieList = []
 
 @dataclass(unsafe_hash=True)
 class Movie:
