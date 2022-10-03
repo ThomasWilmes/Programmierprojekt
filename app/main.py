@@ -18,7 +18,7 @@ df = pd.read_csv("data/movie_titles.csv")
 
 @app.route('/movies')
 def get_list():
-    return parse_csv(df)
+    return getMovieList()
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
