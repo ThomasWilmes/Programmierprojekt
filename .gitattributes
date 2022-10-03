@@ -1,0 +1,4 @@
+*.csv filter=lfs diff=lfs merge=lfs -text
+data/Combined_dat_new_final.csv filter=lfs diff=lfs merge=lfs -text
+data/Matrix.csv filter=lfs diff=lfs merge=lfs -text
+data/movie_titles_new.csv filter=lfs diff=lfs merge=lfs -text
