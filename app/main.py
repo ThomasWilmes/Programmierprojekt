@@ -10,6 +10,10 @@ from recommendation import *
 app = Flask(__name__)
 api = Api(app)
 
+def options (self):
+    return {'Allow' : 'PUT' }, 200, \
+    { 'Access-Control-Allow-Origin': 'ALL', \
+      'Access-Control-Allow-Methods' : 'PUT,GET' }
 
 @app.route('/movies')
 def get_movies():
