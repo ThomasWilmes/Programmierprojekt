@@ -21,10 +21,7 @@ class Movie:
 #      for i,row in csvData.iterrows():
 #            return (i,row['id'],row['film'],)
 
-df = pd.read_csv("data/movie_titles.csv")
-
-def parse_csv():
-    df = pd.read_csv("data/movie_titles.csv")
+def parse_csv(df):
     res = df.to_json(orient="records")
     parsed = json.loads(res)
     return parsed
