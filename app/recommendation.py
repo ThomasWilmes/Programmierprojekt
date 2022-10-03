@@ -22,7 +22,7 @@ class Movie:
 
 def getMovieList():
     global movieList
-    with open("data/movie_titles2.csv", encoding='latin-1') as f:
+    with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
             movieList.append(add_movie(line))
         return movieList
