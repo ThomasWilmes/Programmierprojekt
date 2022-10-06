@@ -15,7 +15,7 @@ api = Api(app)
 
 @app.route('/movies')
 def get_list():
-"""Return the Full Movie List"""
+    """Return the Full Movie List"""
     return get_movie_list()
 
 @app.route('/with_parameters')
