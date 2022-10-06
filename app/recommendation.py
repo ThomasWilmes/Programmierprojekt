@@ -4,6 +4,8 @@ from dataclasses import dataclass
 
 movieList = []
 
+global MOVIE_LIST
+
 @dataclass(unsafe_hash=True)
 class Movie:
     '''Define a Movie'''
@@ -31,7 +33,7 @@ def get_movie_list():
 
 def build_movie_list():
     '''build a List of all Movies'''
-    global MOVIE_LIST
+
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
             MOVIE_LIST.append(add_movie(line))
