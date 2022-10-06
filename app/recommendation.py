@@ -22,7 +22,7 @@ class Movie:
 
 def get_movie_list():
     '''Return a List of all Movies'''
-    if MOVIE_LIST != 0:
+    if MOVIE_LIST != null:
         return MOVIE_LIST
     else:
         build_movie_list()
