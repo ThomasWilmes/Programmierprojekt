@@ -3,7 +3,7 @@ Test implementation of a Restful API
 """
 import os
 
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_restful import Api
 from recommendation import *
 from flask_cors import CORS
@@ -16,6 +16,12 @@ api = Api(app)
 @app.route('/movies')
 def get_list():
     return getMovieList()
+
+@app.route('/with_parameters')
+def with_parameters():
+    filmname = request.args.get('filmname')
+    filmId = int(request.args.get('filmid'))
+    return jsonify(message="The Film: " + str(filmname) + " has the ID:" + filmId)
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
