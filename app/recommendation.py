@@ -22,6 +22,13 @@ class Movie:
 
 def get_movie_list():
     '''Return a List of all Movies'''
+    if MOVIE_LIST != 0:
+        return MOVIE_LIST
+    else build_movie_list()
+   
+
+def build_movie_list():
+    '''build a List of all Movies'''
     global MOVIE_LIST
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
