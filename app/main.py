@@ -15,13 +15,15 @@ api = Api(app)
 
 @app.route('/movies')
 def get_list():
+"""Return the Full Movie List"""
     return getMovieList()
 
 @app.route('/with_parameters')
 def with_parameters():
-    filmname = request.args.get('filmname')
-    filmId = int(request.args.get('filmid'))
-    return jsonify(message="The Film: " + str(filmname) + " has the ID:" + filmId)
+    """Returns the recommendation"""
+    film_name = request.args.get('filmname')
+    film_id = int(request.args.get('filmid'))
+    return jsonify(message="The Film: " + str(film_name) + " has the ID:" + film_id)
 
 if __name__=='__main__':
     cfg_port = os.getenv('PORT', "5000")
