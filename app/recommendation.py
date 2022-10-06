@@ -22,11 +22,11 @@ class Movie:
 
 def get_movie_list():
     '''Return a List of all Movies'''
-    global MovieList
+    global MOVIE_LIST
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
-            MovieList.append(add_movie(line))
-        return MovieList
+            MOVIE_LIST.append(add_movie(line))
+        return MOVIE_LIST
 
 def add_movie(line):
     '''add a Movie to the List'''
