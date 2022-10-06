@@ -24,7 +24,9 @@ def get_movie_list():
     '''Return a List of all Movies'''
     if MOVIE_LIST != 0:
         return MOVIE_LIST
-    else build_movie_list()
+    else:
+        build_movie_list()
+        return MOVIE_LIST
    
 
 def build_movie_list():
