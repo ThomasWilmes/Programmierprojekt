@@ -4,8 +4,6 @@ from dataclasses import dataclass
 
 movieList = []
 
-global MOVIE_LIST
-
 @dataclass(unsafe_hash=True)
 class Movie:
     '''Define a Movie'''
@@ -21,7 +19,7 @@ class Movie:
       # Loop through the Rows
 #      for i,row in csvData.iterrows():
 #            return (i,row['id'],row['film'],)
-
+MOVIE_LIST = null
 def get_movie_list():
     '''Return a List of all Movies'''
     if MOVIE_LIST != null:
@@ -36,7 +34,7 @@ def build_movie_list():
 
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
-            MOVIE_LIST.append(add_movie(line))
+           global MOVIE_LIST.append(add_movie(line))
         return MOVIE_LIST
 
 def add_movie(line):
