@@ -1,4 +1,4 @@
-
+'''The Recommendation System'''
 
 from dataclasses import dataclass
 
@@ -6,8 +6,9 @@ movieList = []
 
 @dataclass(unsafe_hash=True)
 class Movie:
+    '''Define a Movie'''
     title: str
-    id: int
+    m_id: int
 
 
 #def parseCSV(filePath):
@@ -19,7 +20,8 @@ class Movie:
 #      for i,row in csvData.iterrows():
 #            return (i,row['id'],row['film'],)
 
-def getMovieList():
+def get_movie_list():
+    '''Return a List of all Movies'''
     global movieList
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for line in f:
@@ -27,10 +29,11 @@ def getMovieList():
         return movieList
 
 def add_movie(line):
+    '''add a Movie to the List'''
     movie = line.split(',')
     movie_id = movie[0]
     movie_title = movie[1]
     movie = movie[2:-1]
-    if (movie.count('') < len(movie)):
+    if movie.count('') < len(movie):
         movie_title += ','.join(movie)
-    return Movie(id=movie_id, title=movie_title)
+    return Movie(m_id=movie_id, title=movie_title)
