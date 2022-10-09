@@ -11,7 +11,6 @@ class Movie:
     m_id: int
 
 
-
 def get_movie_list() -> list[Movie]:
     '''Return a List of all Movies'''
     movieList: list[Movie] = []
