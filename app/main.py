@@ -40,6 +40,9 @@ def get_recommendation():
             movie_id = [int(request_data)]
         return get_movie_list(movie_id)
    
-if __name__=='__main__':
+if __name__ == '__main__':
+    """
+    configures the port and hosting for the flask api
+    """
     cfg_port = os.getenv('PORT', "5000")
-    app.run(host="0.0.0.0", port=cfg_port, debug=True)
+    app.run(host="0.0.0.0", port=cfg_port)
