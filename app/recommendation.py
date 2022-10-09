@@ -11,38 +11,27 @@ class Movie:
     m_id: int
 
 
-#def parseCSV(filePath):
-      # CVS Column Names
-#      col_names = ['id','film']
-      # Use Pandas to parse the CSV file
-#      csvData = pd.read_csv(filePath,names=col_names, header=None)
-      # Loop through the Rows
-#      for i,row in csvData.iterrows():
-#            return (i,row['id'],row['film'],)
-MOVIE_LIST = null
-def get_movie_list():
+
+def get_movie_list() -> list[Movie]:
     '''Return a List of all Movies'''
-    if MOVIE_LIST != null:
-        return MOVIE_LIST
-    else:
-        build_movie_list()
-        return MOVIE_LIST
+    movieList: list[Movie] = []
+    with open("data/movie_titles.csv", encoding='latin-1') as f:
+        for eachLine in f:
+             movieList.append(build_movie_list(eachLine))
+        return  movieList
    
 
-def build_movie_list():
-    '''build a List of all Movies'''
-
-    with open("data/movie_titles.csv", encoding='latin-1') as f:
-        for line in f:
-           global MOVIE_LIST.append(add_movie(line))
-        return MOVIE_LIST
 
 def add_movie(line):
     '''add a Movie to the List'''
     movie = line.split(',')
-    movie_id = movie[0]
-    movie_title = movie[1]
-    movie = movie[2:-1]
-    if movie.count('') < len(movie):
+    movie[-1] = movie[-1].replace('\n', '')
+    movie_id = movie.pop(0)
+    if (len(movie) > 1):
+        movie_title = movie.pop(0)
         movie_title += ','.join(movie)
+    else:
+        movie_title = movie[0]
     return Movie(m_id=movie_id, title=movie_title)
+    
+    
