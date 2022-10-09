@@ -43,7 +43,10 @@ def get_recommendation():
     try:
         if ',' in request_data:
             movie_id = [int(movie) for movie in request_data.split(',')]
+            if (len(movie_id) > 5):
+                return 'No more than five movies can be selected at a time', 400
         else:
             movie_id = [int(request_data)]
         return get_movie_list(movie_id)
-   
+    except Exception as e:
+        return 'The input data is not in the correct format. The message was: ({0})'.format(e), 400
