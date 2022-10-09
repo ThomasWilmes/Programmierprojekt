@@ -13,7 +13,7 @@ CORS(app)
 api = Api(app)
 
 
-@app.route('/movies', methods=['GET'])
+@app.route('/movie', methods=['GET'])
 def get_list():
     """Return the Full Movie List"""
     return get_movie_list()
