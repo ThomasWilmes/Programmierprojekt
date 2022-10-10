@@ -15,16 +15,9 @@ CORS(app)
 api = Api(app)
 
 @app.route('/movies', methods=['GET'])
-def get_list():
+def get_mov_list():
     """Return the Full Movie List"""
     return get_movie_list()
-
-@app.route('/with_parameters')
-def with_parameters():
-    """Returns the recommendation"""
-    film_name = request.args.get('filmname')
-    film_id = int(request.args.get('filmid'))
-    return jsonify(message="The Film: " + str(film_name) + " has the ID:" + film_id)
 
 @app.route('/recommendation', methods=['GET'])
 def get_recommendation():
@@ -47,7 +40,7 @@ def get_recommendation():
 
 if __name__ == '__main__':
     """
-    configures the port and hosting for the flask api
+configures the port and hosting for the flask api
     """
     cfg_port = os.getenv('PORT', "5000")
     app.run(host="0.0.0.0", port=cfg_port)
