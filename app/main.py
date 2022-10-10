@@ -9,13 +9,8 @@ from recommendation import *
 from flask_cors import CORS
 
 app = Flask(__name__)
+app.debug = True
 
-if __name__ == '__main__':
-    """
-    configures the port and hosting for the flask api
-    """
-    cfg_port = os.getenv('PORT', "5000")
-    app.run(host="0.0.0.0", port=cfg_port)
 
 CORS(app)
 api = Api(app)
@@ -47,6 +42,13 @@ def get_recommendation():
                 return 'No more than five movies can be selected at a time', 400
         else:
             movie_id = [int(request_data)]
-        return get_movie_list(movie_id)
+        return get_list_of_recommendation(movie_id)
     except Exception as e:
         return 'The input data is not in the correct format. The message was: ({0})'.format(e), 400
+
+if __name__ == '__main__':
+    """
+    configures the port and hosting for the flask api
+    """
+    cfg_port = os.getenv('PORT', "5000")
+    app.run(host="0.0.0.0", port=cfg_port)

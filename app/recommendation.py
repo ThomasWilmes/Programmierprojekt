@@ -1,5 +1,5 @@
 '''The Recommendation System'''
-
+import pandas as pd
 from dataclasses import dataclass
 
 movieList = []
@@ -10,13 +10,17 @@ class Movie:
     title: str
     m_id: int
 
+class Recommendation:
+    movie_id: int
+    recommendations: list[int]
+
 
 def get_movie_list() -> list[Movie]:
     '''Return a List of all Movies'''
     movieList: list[Movie] = []
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for eachLine in f:
-             movieList.append(build_movie_list(eachLine))
+             movieList.append(add_movie(eachLine))
         return  movieList
    
 
@@ -32,5 +36,14 @@ def add_movie(line):
     else:
         movie_title = movie[0]
     return Movie(m_id=movie_id, title=movie_title)
-    
-    
+
+def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
+    movie_recommendations: list[Recommendation] = []
+    for movie in movies:
+        if (movie > 17770):
+            raise ValueError('The given id is not an actual movie')
+        df = pd.read_csv('data/recommendation.csv', header=None)
+        recommendations = (df.loc[df[0] == movie].values).tolist()[0]
+        movie_recommendations.append(Recommendation(
+            movie_id=movie, recommendations=recommendations[1:6]))
+    return movie_recommendations
