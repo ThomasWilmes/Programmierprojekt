@@ -11,11 +11,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 app.debug = True
 
-
 CORS(app)
 api = Api(app)
 
-@app.route('/movie', methods=['GET'])
+@app.route('/movies', methods=['GET'])
 def get_list():
     """Return the Full Movie List"""
     return get_movie_list()
@@ -44,7 +43,7 @@ def get_recommendation():
             movie_id = [int(request_data)]
         return get_list_of_recommendation(movie_id)
     except Exception as e:
-        return 'The input data is not in the correct format. The message was: ({0})'.format(e), 400
+        return 'The message was: ({0})'.format(e), 400
 
 if __name__ == '__main__':
     """
