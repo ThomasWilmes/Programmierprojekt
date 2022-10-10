@@ -25,7 +25,7 @@ def get_recommendation():
     """
     Recommendations Endpoint
     """
-    request_data = request.args.get('movies_ids')
+    request_data = request.args.get('movies_id')
     if (request_data is None):
         return 'No input data was given', 400
     try:
