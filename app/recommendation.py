@@ -2,14 +2,14 @@
 import pandas as pd
 from dataclasses import dataclass
 
-movieList = []
 
 @dataclass(unsafe_hash=True)
 class Movie:
     '''Define a Movie'''
     title: str
-    m_id: int
-
+    id: int
+    
+@dataclass(unsafe_hash=True)
 class Recommendation:
     movie_id: int
     recommendations: list[int]
@@ -20,13 +20,14 @@ def get_movie_list() -> list[Movie]:
     movieList: list[Movie] = []
     with open("data/movie_titles.csv", encoding='latin-1') as f:
         for eachLine in f:
-             movieList.append(add_movie(eachLine))
+             movieList.append(create_movie(eachLine))
         return  movieList
    
 
-
-def add_movie(line):
-    '''add a Movie to the List'''
+def create_movie(line: str) -> Movie:
+    """
+    creates a movie
+    """
     movie = line.split(',')
     movie[-1] = movie[-1].replace('\n', '')
     movie_id = movie.pop(0)
@@ -35,9 +36,14 @@ def add_movie(line):
         movie_title += ','.join(movie)
     else:
         movie_title = movie[0]
-    return Movie(m_id=movie_id, title=movie_title)
+    return Movie(id=movie_id, title=movie_title)
+
+
 
 def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
+    """
+    returns a list
+    """
     movie_recommendations: list[Recommendation] = []
     for movie in movies:
         if (movie > 17770):
@@ -45,5 +51,5 @@ def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
         df = pd.read_csv('data/Movie_Recommendations_comma.csv', header=None)
         recommendations = (df.loc[df[0] == movie].values).tolist()[0]
         movie_recommendations.append(Recommendation(
-            movie_id=movie, recommendations=recommendations[1:5]))
+            movie_id=movie, recommendations=recommendations[1:6]))
     return movie_recommendations
