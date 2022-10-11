@@ -15,6 +15,7 @@ CORS(app)
 api = Api(app)
 
 
+
 @app.route('/movies', methods=['GET'])
 def get_mov_list():
     """Return the Full Movie List"""
