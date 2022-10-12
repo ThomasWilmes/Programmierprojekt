@@ -25,7 +25,6 @@ def get_movie_list() -> list[Movie]:
              movieList.append(create_movie(eachLine))
         return  movieList
    
-
 def create_movie(line: str) -> Movie:
     """
     separates one movie at a time from the source file to insert it into a list
