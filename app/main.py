@@ -27,12 +27,12 @@ def get_recommendation():
     """
     request_data = request.args.get('movie_id')
     if (request_data is None):
-        return 'No input data was given', 400
+        return 'Please enter a value for the key: "movie_id"', 400
     try:
         if ',' in request_data:
             movie_ids = [int(mov) for mov in request_data.split(',')]
             if (len(movie_ids) > 5):
-                return 'No more than five movies can be selected at a time', 400
+                return 'Only five movies can be entered at the same time', 400
         else:
             movie_ids = [int(request_data)]
         return get_list_of_recommendation(movie_ids)

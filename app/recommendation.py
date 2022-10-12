@@ -5,12 +5,14 @@ from dataclasses import dataclass
 
 @dataclass(unsafe_hash=True)
 class Movie:
-    '''Define a Movie'''
+    '''Define the Dataclass for a Movie'''
     title: str
     id: int
+    release_year: str
     
 @dataclass(unsafe_hash=True)
 class Recommendation:
+    '''Define the Dataclass for a Recommendation'''
     movie_id: int
     recommendations: list[int]
 
@@ -26,17 +28,18 @@ def get_movie_list() -> list[Movie]:
 
 def create_movie(line: str) -> Movie:
     """
-    creates a movie
+    separates one movie at a time from the source file to insert it into a list
     """
     movie = line.split(',')
     movie[-1] = movie[-1].replace('\n', '')
     movie_id = movie.pop(0)
+    movie_date = movie.pop(0)
     if (len(movie) > 1):
         movie_title = movie.pop(0)
         movie_title += ','.join(movie)
     else:
         movie_title = movie[0]
-    return Movie(id=movie_id, title=movie_title)
+    return Movie(id=movie_id, release_year=movie_date, title=movie_title)
 
 
 
