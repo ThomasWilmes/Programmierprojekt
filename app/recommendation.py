@@ -14,8 +14,12 @@ class Movie:
 class Recommendation:
     '''Define the Dataclass for a Recommendation '''
     movie_id: int
-    recommendations: list[int]
+    movie_title: str
+    
 
+
+    recommendations_ids: list[int]
+    recommendations_titles:list[str]
 
 def get_movie_list() -> list[Movie]:
     '''Return a List of all Movies'''
@@ -50,8 +54,16 @@ def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
     for movie in movies:
         if (movie > 17770):
             raise ValueError('The given id is not an actual movie')
-        df = pd.read_csv('data/Movie_Recommendations_comma.csv', header=None)
-        recommendations = (df.loc[df[0] == movie].values).tolist()[0]
+
+        df_titels = pd.read_csv('data/recommendations_titles.csv', header=None, sep=';')        
+        df_ids = pd.read_csv('data/recommendations_ids.csv', header=None, sep=';')
+
+        recommendations_titles = (df_titels.loc[df_titels[0] == movie].values).tolist()[0]       
+        recommendations_ids = (df_ids.loc[df_ids[0] == movie].values).tolist()[0]
+
         movie_recommendations.append(Recommendation(
-            movie_id=movie, recommendations=recommendations[1:6]))
+            movie_id=recommendations_ids[0], 
+            movie_title=recommendations_titles[1],
+            recommendations_ids=recommendations_ids[1:6], 
+            recommendations_titles=recommendations_titles[2:7]))
     return movie_recommendations
