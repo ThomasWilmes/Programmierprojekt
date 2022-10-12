@@ -24,6 +24,7 @@ def get_mov_list():
 @app.route('/recommendation', methods=['GET'])
 def get_recommendation():
     """
+    get recommendation
     """
     request_data = request.args.get('movie_id')
     if (request_data is None):
@@ -38,6 +39,7 @@ def get_recommendation():
         return get_list_of_recommendation(movie_ids)
     except Exception as e:
         return 'The input data is not in the correct format. The message was: ({0})'.format(e), 400
+
 
 
 if __name__ == '__main__':

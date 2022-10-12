@@ -12,7 +12,7 @@ class Movie:
     
 @dataclass(unsafe_hash=True)
 class Recommendation:
-    '''Define the Dataclass for a Recommendation'''
+    '''Define the Dataclass for a Recommendation '''
     movie_id: int
     recommendations: list[int]
 
