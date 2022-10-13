@@ -1,7 +1,7 @@
 '''The Recommendation System'''
 from dataclasses import dataclass
 import pandas as pd
-
+import math
 
 
 @dataclass(unsafe_hash=True)
@@ -45,24 +45,42 @@ def create_movie(line: str) -> Movie:
 
 
 
-def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
+
+
+
+def get_recommendationcount_for_movieindex(index,anzahlgesamt) -> int:
+    if index > 5:
+        return 0
+    x = 5 % anzahlgesamt
+    y = math.floor(5/anzahlgesamt)
+    return y+1 if index <= x else y
+def get_list_of_recommendation(movies: list[int]) -> list:
     """
     returns a list
     """
-    movie_recommendations: list[Recommendation] = []
-    for movie in movies:
+    original_movies = []
+    movie_recommendations = []
+    for x,movie in enumerate(movies):
         if (movie > 17770):
             raise ValueError('The given id is not an actual movie')
-
         df_titels = pd.read_csv('data/recommendations_titles.csv', header=None, sep=';')        
         df_ids = pd.read_csv('data/recommendations_ids.csv', header=None, sep=';')
-#mit try
         recommendations_titles = (df_titels.loc[df_titels[0] == movie].values).tolist()[0]       
+        #check fehlt aber noch :D
         recommendations_ids = (df_ids.loc[df_ids[0] == movie].values).tolist()[0]
-
-        movie_recommendations.append(Recommendation(
-            movie_id=recommendations_ids[0], 
-            movie_title=recommendations_titles[1],
-            recommendations_ids=recommendations_ids[1:6], 
-            recommendations_titles=recommendations_titles[2:7]))
-    return movie_recommendations
+        anzahl_recommendations = get_recommendationcount_for_movieindex(x+1,len(movies))        #wenn man über dem index 5 ist und somit keine filme mehr vorgeschlagen werden sollen wird direkt returned
+        if anzahl_recommendations == 0:
+            return movie_recommendations
+        original_movies.append({
+            "title":(df_titels.loc[df_titels[0] == movie].values).tolist()[0][1],
+            "id":movie
+        })    
+        for (id,title) in zip(recommendations_ids[1:(1+anzahl_recommendations)],recommendations_titles[2:(2+anzahl_recommendations)]):
+            movie_recommendations.append({
+                "id":id,
+                "title":title
+            })
+    return {
+        "original_movies":original_movies,
+        "recommendation":movie_recommendations
+    }
