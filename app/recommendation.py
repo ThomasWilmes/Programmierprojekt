@@ -1,33 +1,32 @@
 '''The Recommendation System'''
-import pandas as pd
 from dataclasses import dataclass
+import pandas as pd
+
 
 
 @dataclass(unsafe_hash=True)
 class Movie:
     '''Define the Dataclass for a Movie'''
     title: str
-    id: int
+    m_id: int
     release_year: str
-    
+
 @dataclass(unsafe_hash=True)
 class Recommendation:
     '''Define the Dataclass for a Recommendation '''
     movie_id: int
     movie_title: str
-    
-
 
     recommendations_ids: list[int]
     recommendations_titles:list[str]
 
 def get_movie_list() -> list[Movie]:
     '''Return a List of all Movies'''
-    movieList: list[Movie] = []
+    movie_list: list[Movie] = []
     with open("data/movie_titles.csv", encoding='latin-1') as f:
-        for eachLine in f:
-             movieList.append(create_movie(eachLine))
-        return  movieList
+        for each_line in f:
+             movie_list.append(create_movie(each_line))
+        return  movie_list
    
 def create_movie(line: str) -> Movie:
     """
@@ -42,7 +41,7 @@ def create_movie(line: str) -> Movie:
         movie_title += ','.join(movie)
     else:
         movie_title = movie[0]
-    return Movie(id=movie_id, release_year=movie_date, title=movie_title)
+    return Movie(m_id=movie_id, release_year=movie_date, title=movie_title)
 
 
 
@@ -57,7 +56,7 @@ def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
 
         df_titels = pd.read_csv('data/recommendations_titles.csv', header=None, sep=';')        
         df_ids = pd.read_csv('data/recommendations_ids.csv', header=None, sep=';')
-
+#mit try
         recommendations_titles = (df_titels.loc[df_titels[0] == movie].values).tolist()[0]       
         recommendations_ids = (df_ids.loc[df_ids[0] == movie].values).tolist()[0]
 
