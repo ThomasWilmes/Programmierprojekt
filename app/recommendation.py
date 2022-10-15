@@ -1,10 +1,17 @@
 '''The Recommendation System'''
 import math
+from dataclasses import dataclass
 
 import pandas as pd
-from models.movie import Movie
-from models.recommendation import Recommendation
 
+
+@dataclass(unsafe_hash=True)
+class Movie:
+    '''Define the Dataclass for a Movie'''
+    title: str
+    m_id: int
+    release_year: str
+    
 
 def get_movie_list() -> list[Movie]:
     '''
