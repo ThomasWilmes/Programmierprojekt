@@ -1,16 +1,17 @@
 """
-Test implementation of a Restful API
+Implementation of Programming Project Flask API
 """
 import os
 
 from flask import Flask, request
+from flask_cors import CORS
 from flask_restful import Api
 from recommendation import *
-from flask_cors import CORS
 
+# enables flask
 app = Flask(__name__)
-app.debug = True
 
+# enables CORS
 CORS(app)
 api = Api(app)
 
@@ -24,7 +25,7 @@ def get_mov_list():
 @app.route('/recommendation', methods=['GET'])
 def get_recommendation():
     """
-    get recommendation
+    If more than one ID is entered, creates an array from the IDs entered with commas and calls the get_list_of_recommendation method if there are no more than five IDs entered.
     """
     request_data = request.args.get('movie_id')
     if (request_data is None):
