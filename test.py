@@ -1,8 +1,6 @@
 import unittest
 from app.recommandation import get_list_of_recommendation
 
-__all__ = ['get_list_of_movies', 'Movie']
-
 
 class TestApiFunctionallity(unittest.TestCase):
     '''
