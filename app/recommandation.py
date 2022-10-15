@@ -58,8 +58,10 @@ def get_list_of_recommendation(movies: list[int]) -> list[Recommendation]:
         df_titels = pd.read_csv('data/recommendations_titles.csv', header=None, sep=';')        
         df_ids = pd.read_csv('data/recommendations_ids.csv', header=None, sep=';')
 
+        
         recommendations_titles = (df_titels.loc[df_titels[0] == movie].values).tolist()[0]       
         recommendations_ids = (df_ids.loc[df_ids[0] == movie].values).tolist()[0]
+        
 
         movie_recommendations.append(Recommendation(
             movie_id=recommendations_ids[0], 
