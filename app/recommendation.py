@@ -59,10 +59,8 @@ def get_list_of_recommendation(movies: list[int]) -> list:
             'data/recommendations_ids.csv', header=None, sep=';')
         recommendations_titles = (
             df_titels.loc[df_titels[0] == movie].values).tolist()[0]
-        # check fehlt aber noch :D
         recommendations_ids = (
             df_ids.loc[df_ids[0] == movie].values).tolist()[0]
-        # wenn man über dem index 5 ist und somit keine filme mehr vorgeschlagen werden sollen wird direkt returned
         anzahl_recommendations = get_recommendationcount_for_movieindex(
             x+1, len(movies))
         if anzahl_recommendations == 0:
