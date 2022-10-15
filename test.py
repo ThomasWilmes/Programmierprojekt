@@ -1,5 +1,6 @@
 import unittest
-from app.recommandation import get_list_of_recommendation
+
+from app.recommendation import get_list_of_recommendation
 
 
 class TestApiFunctionallity(unittest.TestCase):
