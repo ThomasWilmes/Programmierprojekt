@@ -1,8 +1,6 @@
 import unittest
 from app.recommandation import get_list_of_recommendation
 
-__all__ = ['get_list_of_movies', 'Movie']
-
 
 class TestApiFunctionallity(unittest.TestCase):
     '''
@@ -16,7 +14,7 @@ class TestApiFunctionallity(unittest.TestCase):
         id = {3}
         recommandedMovies = get_list_of_recommendation(id)
 
-        self.assertEqual(5, recommandedMovies.count())
+        self.assertEqual(5, len(recommandedMovies["recommendation"]))
 
     def test_RecSystemOutputZeroWhenNoID(self) -> None:
         '''
@@ -25,16 +23,16 @@ class TestApiFunctionallity(unittest.TestCase):
         id = {}
         recommandedMovies = get_list_of_recommendation(id)
 
-        self.assertEqual(None, recommandedMovies)
+        self.assertEqual(0, len(recommandedMovies["recommendation"]))
 
-    def test_RecSystemOutputZeroWhenInvalidID(self) -> None:
+    def test_RecSystemOutputWithMultipleIDs(self) -> None:
         '''
         tests if recommended movies empty when there is no valid id
         '''     
-        id = {"Hello World"}
+        id = {8,3}
         recommandedMovies = get_list_of_recommendation(id)
 
-        self.assertEqual(None, recommandedMovies)
+        self.assertEqual(5, len(recommandedMovies["recommendation"]))
 
 
 if __name__ == '__main__':

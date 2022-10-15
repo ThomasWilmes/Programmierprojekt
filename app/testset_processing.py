@@ -30,7 +30,7 @@ def get_calculation_base(raw_true, raw_pred):
     for i in raw_true:
         boolean_true[i-1] = True
     for i in raw_pred:
-        boolean_pred[int(i.movie_id-1)] = True
+        boolean_pred[int(i["recommendation"])] = True
     return boolean_true, boolean_pred
 
 def test_if_avaible(movie):
