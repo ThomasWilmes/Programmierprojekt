@@ -50,10 +50,11 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 ## How to use
 
 1. git clone https://github.com/ThomasWilmes/Programmierprojekt.git
-1. pip3 install virtualenv
-1. python -m venv env
-1. .\evn\Scripts\activate
-1. pip3 install -r .\requirements.txt
+2. pip3 install virtualenv
+3. python -m venv env
+4. .\evn\Scripts\activate
+5. --> When Activation is failing: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted --> Repeat step four
+6. pip3 install -r .\requirements.txt
 
 ### Run API
 
@@ -62,19 +63,13 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 ### Create Datafiles
 
 1. Delete everything from the data folder except the testset.json
-1. Download Data from Netflix prize set https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
-1. Add combined_data 1 - 4 .txt to data folder
-1. Add movie_titles.csv to the data folder
-1. Execute the following python code to generate the datasets (takes up to 8 mins!)
-
-   1. python .\functions\database_operations.py init_database
-   1. python .\functions\data_prep.py prepare_movies_db
-   1. python .\functions\data_prep.py prepare_data
-   1. python .\functions\data_prep.py create_similarity_matrix
-
+2. Download Data from Netflix prize set https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
+3. Add combined_data 1 - 4 .txt to data folder
+4. Add movie_titles.csv to the data folder
+5. All headings and passages are located in the Notebook Recommendation System. The data can be processed by adjusting the file paths and installing the requirements beforehand.
 ### Run Evaluation
 
-1. python -m data_evaluation.py
+1. See Notebook
 
 ### Run Frontend
 1. Load index.html into the root directory of your webserver or local client
