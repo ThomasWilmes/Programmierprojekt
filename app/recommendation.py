@@ -40,14 +40,14 @@ def create_movie(line: str) -> Movie:
     return Movie(m_id=movie_id, release_year=movie_date, title=movie_title)
 
 
-def get_recommendationcount_for_movieindex(index, anzahlgesamt) -> int:
+def get_recommendationcount_for_movieindex(index, total) -> int:
     """
     Calculates how many recommendations will be displayed per input to get five recommendations in the end.
     """
     if index > 5:
         return 0
-    x = 5 % anzahlgesamt
-    y = math.floor(5/anzahlgesamt)
+    x = 5 % total
+    y = math.floor(5/total)
     return y+1 if index <= x else y
 
 
@@ -68,15 +68,15 @@ def get_list_of_recommendation(movies: list[int]) -> list:
             df_titels.loc[df_titels[0] == movie].values).tolist()[0]
         recommendations_ids = (
             df_ids.loc[df_ids[0] == movie].values).tolist()[0]
-        anzahl_recommendations = get_recommendationcount_for_movieindex(
+        quantity_recomendations = get_recommendationcount_for_movieindex(
             x+1, len(movies))
-        if anzahl_recommendations == 0:
+        if quantity_recomendations == 0:
             return movie_recommendations
         original_movies.append({
             "title": (df_titels.loc[df_titels[0] == movie].values).tolist()[0][1],
             "id": movie
         })
-        for (id, title) in zip(recommendations_ids[1:(1+anzahl_recommendations)], recommendations_titles[2:(2+anzahl_recommendations)]):
+        for (id, title) in zip(recommendations_ids[1:(1+quantity_recomendations)], recommendations_titles[2:(2+quantity_recomendations)]):
             movie_recommendations.append({
                 "id": id,
                 "title": title
