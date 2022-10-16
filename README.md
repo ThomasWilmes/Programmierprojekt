@@ -23,8 +23,7 @@ https://github.com/users/ThomasWilmes/projects/1
 
 ## Access via Frontend
 
-The frontend of this application is available via
-....
+The frontend of this application is available via https://github.com/ThomasWilmes/Programmierprojekt_Frontend.git
 
 ## Deployment
 
@@ -34,11 +33,7 @@ Both the linting and code validity is checked before doing so.
 
 Only after the build step is completed the deploy step begins
 
-The three relevant enpoints are as follows:
-
-### This index html file
-
-https://recommender-system-hs.herokuapp.com/
+The two relevant enpoints are as follows:
 
 ### The list of available movies
 
