@@ -66,13 +66,9 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 1. Download Data from Netflix prize set https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
 1. Add combined_data 1 - 4 .txt to data folder
 1. Add movie_titles.csv to the data folder
-1. Execute the following python code to generate the datasets (takes up to 8 mins!)
+1. 
 
-   1. python .\functions\database_operations.py init_database
-   1. python .\functions\data_prep.py prepare_movies_db
-   1. python .\functions\data_prep.py prepare_data
-   1. python .\functions\data_prep.py create_similarity_matrix
-
+1. All headings and passages are located in the Notebook Recommendation System. The data can be processed by adjusting the file paths and installing the requirements beforehand.
 ### Run Evaluation
 
 1. python -m data_evaluation.py
