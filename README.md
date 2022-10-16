@@ -53,9 +53,8 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 1. pip3 install virtualenv
 1. python -m venv env
 1. .\evn\Scripts\activate
-"By Some issues"
-Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted
-1. pip3 install -r .\requirements.txt
+2. --> When Activation is failing: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted --> Repeat step two
+3. pip3 install -r .\requirements.txt
 
 ### Run API
 
