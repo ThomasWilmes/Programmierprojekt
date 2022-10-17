@@ -5,7 +5,6 @@ gunicorn==20.1.0
 jupyter
 pandas==0.24.0
 surprise==0.1
-numpy
 keras
 scikit-surprise
 google.colab
