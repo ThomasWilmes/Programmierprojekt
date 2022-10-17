@@ -55,6 +55,7 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 4. .\evn\Scripts\activate
 5. --> When Activation is failing: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted --> Repeat step four
 6. pip3 install -r .\requirements.txt
+7. # Optional # to run the Jupyter Notebook it is recommended to install all jupyter dependencies --> pip install juypter
 
 ### Run API
 
