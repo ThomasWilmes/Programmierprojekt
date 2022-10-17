@@ -21,6 +21,7 @@ jobs:
         pip install flask-restful
         pip install flask
         pip install flake8
+        pip install numpy
         pip install -r requirements.txt
     - name: Lint with flake8
       run: |
