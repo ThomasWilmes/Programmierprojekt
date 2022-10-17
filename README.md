@@ -67,7 +67,9 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 2. Download Data from Netflix prize set https://www.kaggle.com/datasets/netflix-inc/netflix-prize-data
 3. Add combined_data 1 - 4 .txt to data folder
 4. Add movie_titles.csv to the data folder
-5. All headings and passages are located in the Notebook Recommendation System. The data can be processed by adjusting the file paths and installing the requirements beforehand.
+1. All headings and passages are located in the Notebook Recommendation System. The data can be processed by adjusting the file paths and installing the requirements beforehand.
+
+
 ### Run Evaluation
 
 1. See Notebook
