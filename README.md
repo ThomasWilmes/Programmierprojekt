@@ -56,6 +56,7 @@ https://backend-api-gruppe5.herokuapp.com/recommendation?movie_id=3,5,8
 5. --> When Activation is failing: Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Unrestricted --> Repeat step four
 6. --> to run the Jupyter Notebook in virtual Enviroment it is recommended to install all jupyter dependencies --> pip3 install jupyter
 7. pip3 install -r .\requirements.txt
+8. In order to run the Jupyter Notebook, all packages in the first Chapter needs to be installed!
 
 ### Run API
 
