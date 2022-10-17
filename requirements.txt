@@ -186,7 +186,6 @@ widgetsnbextension==4.0.3
 win-unicode-console==0.5
 wincertstore==0.2
 wrapt==1.14.1
-xlwings==0.24.9
 zict==2.0.0
 pip-tools==6.8.0
 powerlaw==1.5
